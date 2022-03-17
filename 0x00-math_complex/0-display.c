@@ -10,17 +10,17 @@ int display_complex_number(complex x)
 {
 	if (x.re != 0 && x.im != 0)
 	{
-		printf("%2.0f %+2.0f%c\n", x.re, x.im, 'i');
+		printf("%.0f%+.0f%c\n", x.re, x.im, 'i');
 		return (1);
 	}
 	else if (x.im == 0)
 	{
-		printf("%2.0f \n", x.re);
+		printf("%.0f\n", x.re);
 		return (1);
 	}
 	else
 	{
-		printf("%2.0f %c\n\n", x.im, 'i');
+		printf("%.0f%c\n\n", x.im, 'i');
 		return (1);
 	}
 }
