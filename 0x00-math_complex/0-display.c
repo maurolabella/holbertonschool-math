@@ -20,7 +20,7 @@ int display_complex_number(complex x)
 	}
 	else
 	{
-		printf("%.0f%c\n\n", x.im, 'i');
+		printf("%.0f%c\n", x.im, 'i');
 		return (1);
 	}
 }
