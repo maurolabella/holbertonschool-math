@@ -12,7 +12,7 @@ typedef struct Complex
 	double im;
 } complex;
 
-int display_complex_number(complex x);
+void display_complex_number(complex x);
 
 #include <stdio.h>
 
