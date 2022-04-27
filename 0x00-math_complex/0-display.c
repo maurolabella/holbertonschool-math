@@ -15,7 +15,6 @@ void display_complex_number(complex x)
 	}
 	else
 	{
-		printf("%.0f\n", x.re);
-		return (1);
+		printf("%g\n", x.re);
 	}
 }
