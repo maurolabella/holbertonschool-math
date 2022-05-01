@@ -1,46 +1,54 @@
-#!/usr/bin/python3
-
-import sys
+#!/usr/bin/env python3
 import numpy as np
 
 def gaussian_elimination(A, b):
-    n = len(b)
-    x = np.zeros(n, float)
-
-    if np.linalg.det(A) == 0:
+    try:
+        return (np.linalg.solve(A, b))
+    except np.linalg.LinAlgError:
         print("You can't divide by zero!")
         return None
 
-    # first loop specifies the fixed row
-    for k in range(n-1):
-        if np.fabs(A[k, k]) < 1.0e-12:
+# import sys
+# import numpy as np
 
-            for i in range(k+1, n):
-                if np.fabs(A[i, k]) > np.fabs(A[k, k]):
-                    A[[k, i]] = A[[i, k]]
-                    b[[k, i]] = b[[i, k]]
-                    break
+# def gaussian_elimination(A, b):
+#     n = len(b)
+#     x = np.zeros(n, float)
 
-    # elimination below fixed row
-        for i in range(k+1, n):
-            if A[i, k] == 0:
-                continue
+#     if np.linalg.det(A) == 0:
+#         print("You can't divide by zero!")
+#         return None
 
-            factor = A[k, k]/A[i, k]
-            for j in range(k, n):
-                A[i, j] = A[k, j]*factor
-                # also take into account the b vector
-            b[i] = b[k] - b[i]*factor
+#     # first loop specifies the fixed row
+#     for k in range(n-1):
+#         if np.fabs(A[k, k]) < 1.0e-12:
 
-    x[n-1] = b[n-1] / A[n-1, n-1]
-    for i in range(n-2, -1, -1):
-        sum_ax = 0
+#             for i in range(k+1, n):
+#                 if np.fabs(A[i, k]) > np.fabs(A[k, k]):
+#                     A[[k, i]] = A[[i, k]]
+#                     b[[k, i]] = b[[i, k]]
+#                     break
 
-        for j in range(i+1, n):
-            sum_ax += A[i, j]*x[j]
+#     # elimination below fixed row
+#         for i in range(k+1, n):
+#             if A[i, k] == 0:
+#                 continue
 
-            x[i] = (b[i]-sum_ax)/A[i, i]
-    return x
+#             factor = A[k, k]/A[i, k]
+#             for j in range(k, n):
+#                 A[i, j] = A[k, j]*factor
+#                 # also take into account the b vector
+#             b[i] = b[k] - b[i]*factor
+
+#     x[n-1] = b[n-1] / A[n-1, n-1]
+#     for i in range(n-2, -1, -1):
+#         sum_ax = 0
+
+#         for j in range(i+1, n):
+#             sum_ax += A[i, j]*x[j]
+
+#             x[i] = (b[i]-sum_ax)/A[i, i]
+#     return x
 
 # try:
 #     if not np.any(b):
