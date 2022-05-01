@@ -23,7 +23,7 @@ if __name__ == "__main__":
     print("The solution of the linear system using Gauss eluimination algorithm\n",
           gaussian_elimination(A, b))
 
-    A = [[1, 1, 1], [1, 2, 3], [2, 3, 4]]
+    A = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
     b = [-2, 5, 1]
     print("The matrix A:\n", A)
     print("The vector b:\n", b)
